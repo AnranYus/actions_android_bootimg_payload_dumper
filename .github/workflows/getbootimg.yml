@@ -23,14 +23,6 @@ jobs:
         cd ~
         pip install bsdiff4
         python -m pip install protobuf
-
-    - name: Clean Up Disk Space
-      run: |
-        docker rmi `docker images -q`
-        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-        sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-        sudo -E apt-get -y autoremove --purge
-        sudo -E apt-get clean 
         
     - name: Clone the tools source code
       run: |
